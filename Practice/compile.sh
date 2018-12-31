@@ -1,0 +1,1 @@
+ g++ $1 ../Canvas.cpp `pkg-config opencv --libs --cflags` -I../ -std=c++11;
