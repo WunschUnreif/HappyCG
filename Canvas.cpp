@@ -77,7 +77,7 @@ void CG::Canvas::outputPng(const std::string& filename) {
     cv::imwrite(filename, imgmat);
 }
 
-void CG::Canvas::wait() {
+void CG::Canvas::wait(int ms) {
     if(!window) return;
-    cv::waitKey();
+    cv::waitKey(ms);
 }

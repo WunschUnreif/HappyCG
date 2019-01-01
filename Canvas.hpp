@@ -36,7 +36,7 @@ public:
     cv::Vec3b* operator[](int r);
 
     void refreshCanvas();
-    void wait();
+    void wait(int ms = 0);
     void outputPng(const std::string& filename);
 };
 

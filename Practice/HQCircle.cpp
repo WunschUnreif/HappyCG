@@ -7,7 +7,6 @@ Canvas canvas(H, W, 255);
 double dist(int x1, int y1, int x2, int y2) { return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); }
 double sample(int x, int y, int cx, int cy, int radius, int t) {
     double diff = abs(dist(x, y, cx, cy) - radius);
-    if(diff > 0.5 * t) return 255;
     return diff > 0.5 * t ? 255 : 255 / (0.25 * t * t) * diff * diff;
 }
 void setRel8Pix(int x, int y, int cx, int cy, int sam) {
@@ -39,7 +38,15 @@ void hqCircle(int cx, int cy, int rad, int t) {
 }
 
 int main() {
-    hqCircle(300, 300, 150, 5);
-    canvas.outputPng("hqCircle.png");
+    canvas.refreshCanvas();
+    canvas.wait();
+    for(int r = 10; r <= 150; ++r) {
+        canvas = Canvas(H, W, 255);
+        hqCircle(300, 300, r, 5);
+        canvas.refreshCanvas();
+        canvas.wait(100);
+    }
+    canvas.wait();
+    canvas.outputPng("result/hqCircle2.png");
     return 0;
 }
