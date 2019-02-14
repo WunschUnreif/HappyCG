@@ -38,6 +38,9 @@ public:
     void refreshCanvas();
     void wait(int ms = 0);
     void outputPng(const std::string& filename);
+
+    void forEachPixelDo(std::function<bool(int, int)> func);
+    void forEachPixelInRangeDo(int x0, int y0, int x1, int y1, std::function<bool(int, int)> func);
 };
 
 }

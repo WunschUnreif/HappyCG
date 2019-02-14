@@ -1,4 +1,4 @@
-#include "inc.hpp"
+#include "../inc.hpp"
 using namespace CG;
 
 int W = 600, H = 600;

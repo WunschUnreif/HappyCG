@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <cmath>
+#include <functional>
+
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 

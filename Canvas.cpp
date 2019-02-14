@@ -81,3 +81,21 @@ void CG::Canvas::wait(int ms) {
     if(!window) return;
     cv::waitKey(ms);
 }
+
+void CG::Canvas::forEachPixelDo(std::function<bool(int, int)> func) {
+    for(int y = 0; y < height; ++y) {
+        for(int x = 0; x < width; ++x) {
+            if(!func(x, y)) return;
+        }
+    }
+}
+
+void CG::Canvas::forEachPixelInRangeDo(
+    int x0, int y0, int x1, int y1, std::function<bool(int, int)> func
+) {
+    for(int y = y0; y <= y1; ++y) {
+        for(int x = x0; x <= x1; ++x) {
+            if(!func(x, y)) return;
+        }
+    }
+}
